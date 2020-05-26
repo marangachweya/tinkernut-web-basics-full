@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include('config.php');?>
 <html>
 <title>Welcome!</title>
 <head>
@@ -7,12 +8,16 @@
 </head>
 <?php include("header.php");?>
 <?php
-$mypass = "pass";
-$passcheck = $_POST["pass"];
-if($passcheck == $mypass){
-echo "Welcome,".$_POST["username"]."!You are now logged in.</br>";
-$_SESSION['user'] = $_POST['username'];
+$usercheck = $_POST ["username"];
+$passcheck = $_POST["password"];
+mysql_query("SELECT * FROM users WHERE username='$usercheck'");
+if (mysql_num_rows($db_query)==1){
+	$record= mysql_fetch_array($db_query);
+if(md5($passcheck) == $record['password']){
+echo "Welcome,".$usercheck."!You are now logged in.</br>";
+$_SESSION['user'] = $usercheck;
 $_SESSION['pass'] = $passcheck;
+}
 }
 else
 echo "<p class='sorry'>Sorry, wrong password</br>"

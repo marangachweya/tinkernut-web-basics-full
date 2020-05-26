@@ -1,4 +1,4 @@
-## Tinkernut Web Basics (2012, 2013) By Tinkernut [@gigafide]
+## Tinkernut Web Basics Source Code
 Source Code for Course by Tinkernut [@gigafide]
 Code done by Tinkernut
 ## Instruction

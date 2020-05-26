@@ -1,0 +1,53 @@
+a{
+text-decoration:none;
+color:grey;
+}
+p.welcome{
+font-family:"vendana";
+font-size:1.875em;
+color:white;
+text-align:center;
+font-style:bold;
+}
+p.content{
+font-family:"vendana";
+font-size:1em;
+color:white;
+font-style:italic;
+}
+p.sorry{
+font-family:"vendana";
+font-size:1em;
+color:white;
+font-style:italic;
+}
+img{
+display:block;
+margin:auto;
+}
+div.main{
+width:50%;
+margin:auto;
+background:#251111;
+}
+div.row2col1{
+float:left;
+margin:0;
+}
+div.row2col2{
+margin-left:25%;
+background-color:#0A1616;
+border:15px solid #251111;
+}
+body{
+background-color: #393635;
+color:white;
+  font-family: "Times New Roman", Times, serif;
+}
+hr{
+border:1px solid white;
+}
+a:hover{
+text-decoration:none;
+color:grey;
+}

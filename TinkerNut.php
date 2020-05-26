@@ -21,7 +21,7 @@
 if (isset($_SESSION['user']))
 echo"<p class='welcome' id='greeting'>Hi,&nbsp;".$_SESSION['user']."!&nbsp;Welcome to my site</p>";
 else
-echo "<center><p class='welcome' id='greeting'>Please Login</p><form action='welcome.php' method='post' onSubmit='return clicked()'><b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='username'/><br><label><b>Password:</b></label><input type='password' id='password' name='pass'/><br><input type='submit' value='Click me'/></form></center>";
+echo "<center><p class='welcome' id='greeting'>Please Login</p><form action='welcome.php' method='post' onSubmit='return clicked()'><b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='username'/><br><label><b>Password:</b></label><input type='password' id='password' name='password'/><br><input type='submit' value='Click me'/></form></center>";
 ?>
 <?php
 if (isset($_SESSION['user']))

@@ -26,7 +26,7 @@ At the moment we have no live demo
 * Corrected Text
 * Added Files
 ## TO-DO
-* MYSQL Intergration
+* MYSQL Intergration (Working On It)
 * Reponsive CSS
 ## Authors
 * [Tinkernut](http://tinkernut.com)

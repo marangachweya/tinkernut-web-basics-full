@@ -1,4 +1,4 @@
-"# Tinkernut-Web-# Source Code for Course by Tinkernut [@gigafide]
+Source Code for Course by Tinkernut [@gigafide]
 Code done by Tinkernut
 ## Instruction
 Use it with xampp.

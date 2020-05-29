@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start(); 
+include('config.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,21 +19,38 @@
 <body>
 <?php include("header.php");?>
 <?php
-if (isset($_SESSION['user']))
-echo"<p class='welcome' id='greeting'>Hi,&nbsp;".$_SESSION['user']."!&nbsp;Welcome to my site</p>";
-else
-echo "<center><p class='welcome' id='greeting'>Please Login</p><form action='welcome.php' method='post' onSubmit='return clicked()'><b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='username'/><br><label><b>Password:</b></label><input type='password' id='password' name='password'/><br><input type='submit' value='Click me'/></form></center>";
-?>
-<?php
-if (isset($_SESSION['user']))
-echo "<center><h1>User List:</h1>
-<table border='1'>
-<tr><td><b>User</b></td>
-<td><b>Login Password</b></tr>
-<tr><td>".$_SESSION['user']. "</td>
-<td>".$_SESSION['pass']."</td></tr>
-</table>
-</center>";
+if (isset($_SESSION['user'])){
+	echo "<center>
+	<p class='welcome' id='greeting'>Add User:</p>
+	<form action='add_user.php' method='post' onSubmit='return clicked()'>
+	<b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='addusername'/>
+	<br><label><b>Password:</b></label><input type='password' id='password' name='addpassword'/><br>
+	<input type='submit' value='Add'/>
+	</form>
+	</center>";
+
+	$db_query = mysqli_query($db_con,"SELECT * FROM users ");
+	echo"<center><h1>User List</h1><table border='1'>
+	<tr>
+	<td><b>User ID</b></td>
+	<td><b>Username</b></td>
+	</tr>";
+	while($record = mysqli_fetch_array($db_query)){
+		echo "<td>".$record['id']."</td>";
+		echo "<td>".$record['username']."</td>";
+		echo "</tr>";
+		echo "</table>
+		</center>";
+	}	
+}
+else 		echo "<center><form action='welcome.php'>
+		<p class='welcome' id='greeting'>Please Login:</p>
+		<form action='add_user.php' method='post' onSubmit='return clicked()'>
+		<b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='username'/>
+		<br><label><b>Password:</b></label><input type='password' id='password' name='password'/><br>
+		<input type='submit' value='Login'/>
+		</form>
+		</center>";
 ?>
 <?php if (isset($_SESSION['user']))
 echo "<center><a href='logout.php'>Logout</a></center>"

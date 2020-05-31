@@ -3,11 +3,12 @@ include('config.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="shorcut icon" href="https://pbs.twimg.com/profile_images/1092495372629524481/VNybfXDy.jpg"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tinkernut Foundation</title>
     <!--Icon-->
-    <link rel="icon" href="https://pbs.twimg.com/profile_images/1092495372629524481/VNybfXDy.jpg" type="image/jpg" sizes="16x16">
+
    
        <!--CSS-->
        <link rel="stylesheet" href="TinkerNut.css">
@@ -19,7 +20,7 @@ include('config.php');?>
 <body>
 <?php include("header.php");?>
 <?php
-if (isset($_SESSION['user'])){
+if (isset($_SESSION['user']) && $_SESSION['user']=='alvinadmin'){
 	echo "<center>
 	<p class='welcome' id='greeting'>Add User:</p>
 	<form action='add_user.php' method='post' onSubmit='return clicked()'>
@@ -28,7 +29,8 @@ if (isset($_SESSION['user'])){
 	<input type='submit' value='Add'/>
 	</form>
 	</center>";
-
+}
+if (isset($_SESSION['user'])){
 	$db_query = mysqli_query($db_con,"SELECT * FROM users ");
 	echo"<center><h1>User List</h1><table border='1'>
 	<tr>
@@ -36,14 +38,15 @@ if (isset($_SESSION['user'])){
 	<td><b>Username</b></td>
 	</tr>";
 	while($record = mysqli_fetch_array($db_query)){
+		echo "<tr>";
 		echo "<td>".$record['id']."</td>";
 		echo "<td>".$record['username']."</td>";
 		echo "</tr>";
-		echo "</table>
-		</center>";
 	}	
+		echo "</table></center>";
 }
-else 		echo "<center><form action='welcome.php'>
+
+else 		echo "<center><form action='welcome.php' method='post'>
 		<p class='welcome' id='greeting'>Please Login:</p>
 		<form action='add_user.php' method='post' onSubmit='return clicked()'>
 		<b id='errorMsg'>Name:</b><input type='text' id='nameCheck' name='username'/>

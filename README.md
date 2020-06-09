@@ -2,7 +2,9 @@
 Source Code for Course by Tinkernut [@gigafide]
 Code done by Tinkernut
 ## Instruction
-Use it with xampp.
+*Use it with xampp.
+*Make a Database To Use it With
+
 ## Add features
 Add features of your own and submit
 1. Fork it!
